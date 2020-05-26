@@ -26,11 +26,14 @@ SECRET_KEY = 'n*!6w4z6hk!u*zj4mr4h7qb*4wlzd_i+p-3r3#h*=(3q*8(1k7'
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
-
+	
 
 # Application definition
 
 INSTALLED_APPS = [
+    # 3rd party
+    'rest_framework',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,7 +41,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
+
 ]
+
+# Setting permission
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
